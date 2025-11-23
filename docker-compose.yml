@@ -1,0 +1,25 @@
+services:
+  api:
+    build: .
+    container_name: moa-api
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./data:/app/data
+    environment:
+      - DEBUG=${DEBUG:-true}
+    env_file: [.env]
+    command: ["uvicorn", "src.application.api.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  cli:
+    build: .
+    container_name: moa-cli
+    volumes:
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./data:/app/data
+    environment:
+      - DEBUG=${DEBUG:-true}
+    env_file: [.env]

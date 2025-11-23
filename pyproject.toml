@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "moa"
+version = "0.1.0"
+description = "ReAct-Gated Mixture-of-Agents: Master agent orchestrating sub-agents (OpenAI, Gemini, etc.)"
+authors = ["Estèphe ARNAUD"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "~3.11"
+
+# --- Configuration and Utilities ---
+pydantic = "^2.7.1"
+pydantic-settings = "^2.2.1"
+python-dotenv = "^1.0.1"
+
+# --- Data Processing ---
+pandas = "^2.2.2"
+numpy = "^1.26.4"
+
+# --- LLMs, Embeddings, Tokenization ---
+openai = "^1.28.0" # OpenAI Python client
+tiktoken = "^0.7.0" # OpenAI tokenizer
+
+# --- LangChain Family ---
+langchain-core = "^0.3.0"
+langchain-openai = "^0.2.0"
+langchain-community = "^0.3.0"
+langchain = "^0.3.0"
+langchain-ollama = "^0.2.0"
+langchain-huggingface = "^0.1.0"
+langchain-groq = "^0.2.0"
+langchain-google-genai = "^2.0.0"
+langgraph = "^0.2.0"
+
+# --- MCP (Model Context Protocol) ---
+# Note: MCP integration is placeholder - add actual MCP library when implementing
+# Example: mcp = "^0.1.0" (when available)
+
+# --- Evaluation and Metrics Logging ---
+wandb = "^0.17.0" # Weights & Biases
+
+# --- Web API (FastAPI) ---
+fastapi = "^0.111.0"
+uvicorn = {extras = ["standard"], version = "^0.31.0"}
+langgraph-checkpoint-sqlite = "^2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+ipykernel = "^6.29.4"
+notebook = "^7.2.0"
+jupytext = "^1.16.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api" 

@@ -1,0 +1,44 @@
+# syntax=docker/dockerfile:1
+
+# --- Stage 1: Build virtual environment with dependencies ---
+FROM python:3.11-slim as builder
+
+# Set up Poetry
+ENV POETRY_HOME="/opt/poetry"
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV POETRY_NO_INTERACTION=1
+RUN pip install --upgrade pip && \
+    pip install poetry
+
+# Copy only the dependency files to leverage Docker cache
+WORKDIR /app
+COPY poetry.lock pyproject.toml ./
+
+# Install dependencies (--only=main excludes dev dependencies)
+RUN poetry install --no-root --only=main --sync
+
+# --- Stage 2: Final application image ---
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR /app
+
+# Copy the virtual environment from the builder stage
+COPY --from=builder /app/.venv ./.venv
+# Activate the virtual environment
+ENV PATH="/app/.venv/bin:$PATH"
+
+# Copy the application source code
+COPY src ./src
+COPY config ./config
+
+# Set the default command to run the main workflow
+# You can override this command when running the container
+CMD ["python", "-m", "src.application.cli.run_ragmoa", "--help"]
+
+# For example, to run a specific script:
+# docker run -e OPENAI_API_KEY=$OPENAI_API_KEY moa-app python -m src.application.cli.run_ragmoa --query "My query"
+# docker run -e GOOGLE_API_KEY=$GOOGLE_API_KEY moa-app python -m src.application.cli.run_ragmoa --query "Multi-modal query"

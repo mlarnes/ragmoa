@@ -1,0 +1,164 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.venv
+venv.bak/
+venv_backup/
+
+# Poetry
+poetry.lock
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# SQLite databases
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Data directories (large files)
+data/raw/
+data/processed/
+data/pdfs/
+data/evaluation/datasets/
+data/checkpoint*
+
+# Model files
+*.pkl
+*.pickle
+*.h5
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+*.cover
+*.py,cover
+
+# Documentation builds
+docs/_build/
+site/
+.mkdocs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+*.swp
+*.swo
+*~
+
+# Weights & Biases
+wandb/
+.wandb/
+
+# Vector store indexes
+*.index
+*.faiss
+*.ann
+
+# Large data files
+*.csv
+*.parquet
+*.feather
+*.hdf5
+*.h5
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Profiling
+.prof
+
+# Coverage reports
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDEs
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Local configuration
+config.local.py
+settings.local.py

@@ -57,7 +57,7 @@ class Settings(BaseSettings):
     GROQ_MODEL_NAME: Optional[str] = "llama-3.3-70b-versatile"  # Default Groq model
     GOOGLE_GEMINI_MODEL_NAME: Optional[str] = "gemini-pro"  # Default Gemini model
 
-    # --- Agentic Workflow Configuration ---
+    # --- Core Workflow Configuration ---
     # Summary and Memory Management
     SUMMARY_THRESHOLD: int = 15  # Number of messages before triggering summarization (more frequent = better memory management)
     MESSAGES_TO_KEEP_AFTER_SUMMARY: int = 3  # Number of recent messages to keep after summarization
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     print("\n--- Data & Paths ---")
     print(f"Data Directory: {settings.DATA_DIR}")
     
-    print("\n--- Agentic Workflow Configuration ---")
+    print("\n--- Core Workflow Configuration ---")
     print(f"Summary Threshold: {settings.SUMMARY_THRESHOLD} messages")
     print(f"Messages to Keep After Summary: {settings.MESSAGES_TO_KEEP_AFTER_SUMMARY}")
     print(f"Max Iterations: {settings.MAX_ITERATIONS}")
